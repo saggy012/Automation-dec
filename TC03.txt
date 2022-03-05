@@ -1,0 +1,21 @@
+package com.testng;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+
+import com.vel.config.Configurations;
+
+public class Verificaton3 {
+public static void main(String[] args) {
+	System.setProperty("webdriver.chrome.driver", Configurations.driverPath);
+	WebDriver driver=new ChromeDriver();
+	driver.get(Configurations.appurl);
+	driver.manage().window().maximize();
+	
+	boolean sts = driver.findElement(By.xpath("//button[@name='login']")).isEnabled();
+	System.out.println(sts);
+	Assert.assertFalse(sts);
+}
+}
